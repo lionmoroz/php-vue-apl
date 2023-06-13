@@ -1,0 +1,46 @@
+version: '3'
+
+services:
+  backend:
+    build:
+      context: ./backend-php
+      dockerfile: Dockerfile
+    ports:
+      - 8090:80
+    depends_on:
+      - db
+    volumes:
+      - ./backend-php:/var/www/html
+    networks:
+      - app-network
+
+  frontend:
+    build:
+      context: ./frontend-vue
+      dockerfile: Dockerfile
+    environment:
+      - API_URL=http://127.0.0.1:8090
+    ports:
+      - 8080:8080
+    networks:
+      - app-network
+    depends_on:
+      - backend
+
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=true
+      - MYSQL_DATABASE=user_db
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=root
+    ports:
+      - 3306:3306
+    volumes:
+      - ./backend-php/user.sql:/docker-entrypoint-initdb.d/user.sql
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

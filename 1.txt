@@ -1,0 +1,47 @@
+.
+├── 1.txt
+├── add_hosts_entries.sh
+├── backend-php
+│   ├── class
+│   │   └── user.php
+│   ├── config
+│   │   └── database.php
+│   ├── cors.php
+│   ├── create.php
+│   ├── delete.php
+│   ├── Dockerfile
+│   ├── index.php
+│   ├── php-vue-crud-simple
+│   │   └── php-mysql-crud-api
+│   ├── read.php
+│   ├── single_user.php
+│   ├── update.php
+│   └── user.sql
+├── docker-compose.yaml
+└── frontend-vue
+    ├── babel.config.js
+    ├── dist
+    ├── Dockerfile
+    ├── nginx
+    │   └── conf.d
+    │       └── default.conf
+    ├── package.json
+    ├── package-lock.json
+    ├── public
+    │   ├── favicon.ico
+    │   └── index.html
+    ├── README.md
+    ├── src
+    │   ├── App.vue
+    │   ├── assets
+    │   │   └── logo.png
+    │   ├── components
+    │   │   ├── Users.vue
+    │   │   └── User.vue
+    │   ├── main.js
+    │   ├── routes.js
+    │   └── service
+    │       └── UserDataService.js
+    └── vue.config.js
+
+14 directories, 30 files
